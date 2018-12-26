@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-content',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ContentComponent implements OnInit {
 
   token: string = ""
-  constructor() { }
+  constructor(private data: DataService) { }
 
   ngOnInit() {
 
