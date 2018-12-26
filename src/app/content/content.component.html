@@ -6,7 +6,7 @@
               <label for="example" class="clr-control-label">Token</label>
               <div class="clr-control-container">
                   <div class="clr-input-wrapper">
-                      <input type="text" id="example" placeholder="Github Token" class="clr-input">
+                      <input name="input" type="text" id="example" placeholder="Github Token" class="clr-input" [(ngModel)]="token" >
                       <clr-icon class="clr-validate-icon" shape="exclamation-circle"></clr-icon>
                   </div>
                   <span class="clr-subtext">Enter Here</span>
@@ -15,5 +15,8 @@
       </form>
        <button class="btn btn-primary" (click)="submit()">Submit</button>
     </div>
+    <clr-datagrid *ngIf="repositories.length > 0">
+    
+    </clr-datagrid>
   </div>
 </div>

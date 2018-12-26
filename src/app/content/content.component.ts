@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
 export class ContentComponent implements OnInit {
 
   token: string = ""
+  repositories = []
   constructor(private data: DataService) { }
 
   ngOnInit() {
@@ -16,6 +17,9 @@ export class ContentComponent implements OnInit {
   }
 
   submit(){
-    console.log("worked")
+    console.log(this.token)
+    fetch(`https://api.github.com/users/{{this.token}}/repos`)
+    .then(data => console.log(data))
+    .catch(error => console.log(error))
   }
 }
