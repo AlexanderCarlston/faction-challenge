@@ -17,9 +17,9 @@ export class ContentComponent implements OnInit {
   }
 
   submit(){
-    console.log(this.token)
-    fetch(`https://api.github.com/users/{{this.token}}/repos`)
-    .then(data => console.log(data))
+    fetch("https://api.github.com/users/" + this.token + "/repos")
+    .then(response => response.json())
+    .then(data => this.repositories = data)
     .catch(error => console.log(error))
   }
 }
