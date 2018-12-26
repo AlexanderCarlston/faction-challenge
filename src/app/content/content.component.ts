@@ -7,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContentComponent implements OnInit {
 
-  
+  token: string = ""
   constructor() { }
 
   ngOnInit() {
+
   }
 
+  submit(){
+    console.log("worked")
+  }
 }
