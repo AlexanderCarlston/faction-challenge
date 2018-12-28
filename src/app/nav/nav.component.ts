@@ -12,6 +12,7 @@ export class NavComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(DataService)
   }
 
   getName(){
