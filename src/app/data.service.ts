@@ -6,10 +6,14 @@ import { Injectable } from '@angular/core';
 
 export class DataService {
 
-  name: string = "service"
+  name: string = ""
   constructor() { }
   
   getName(){
+    return this.name
+  }
 
+  updateName(updateName){
+    this.name = updateName
   }
 }

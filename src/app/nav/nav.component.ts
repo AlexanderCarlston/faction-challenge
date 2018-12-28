@@ -8,19 +8,17 @@ import { DataService } from '../data.service';
 })
 export class NavComponent implements OnInit {
 
-  name = ""
-  constructor() { }
+  name: string = ""
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    console.log(DataService)
-  }
-
-  getName(){
-    return this.name
+    console.log(this.dataService.getName())
   }
 
   onKey(event: any){
-    console.log(this.name + event.target.value)
+    // console.log(this.name + event.target.value)
+    this.dataService.updateName(this.name + event.target.value)
+    // console.log("name value", this.dataService.getName())
   }
 
 }
