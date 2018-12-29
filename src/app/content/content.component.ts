@@ -31,7 +31,7 @@ export class ContentComponent implements OnInit {
         this.repositories = data
       } else {
         var dataUnfiltered = data
-        this.repositories = dataUnfiltered.filter(repository => repository.name == name)
+        this.repositories = dataUnfiltered.filter(repository => repository.name.includes(name))
       }
     })
     .catch(error => console.log(error))
