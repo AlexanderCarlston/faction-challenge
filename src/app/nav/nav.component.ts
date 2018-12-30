@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    console.log(this.dataService.getName())
+    // console.log(this.dataService.getName())
   }
 
   onKey(event: any){

@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 
 export class DataService {
 
-  name: string = ""
+  name = "WORKS"
+  repositories = []
   constructor() { }
   
   getName(){
@@ -16,4 +17,9 @@ export class DataService {
   updateName(updateName){
     this.name = updateName
   }
+
+  filterReopositories(){
+
+  }
+
 }

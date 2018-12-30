@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
 import { DataService } from '../data.service';
 
 @Component({
@@ -8,22 +8,22 @@ import { DataService } from '../data.service';
 })
 export class ContentComponent implements OnInit {
 
-  token: string = ""
+  @Input() name: "test"
   repositories = []
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-
+    console.log(name, "this.name")
   }
 
-  filterRepositories(){
+  ngOnChanges(changes: SimpleChanges) {
 
   }
 
   submit(){
     var name = this.dataService.getName()
     console.log(name)
-    fetch("https://api.github.com/users/" + this.token + "/repos")
+    fetch("https://api.github.com/users/" + this.name + "/repos")
     .then(response => response.json())
     .then(data => {
       if(name == ""){
