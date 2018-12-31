@@ -15,6 +15,8 @@ Uses a personal github token to login to my own github account and lists all of 
 ## Checklist
 
 - [x] Basic functionality
+- [x] Search bar (Basic)
+- [x] Search bar (Works with parts of name, not the exact string)
 
 ## Development server
 
