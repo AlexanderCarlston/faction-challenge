@@ -8,7 +8,7 @@ import { DataService } from '../data.service';
 })
 export class ContentComponent implements OnInit {
 
-  @Input() name: "test"
+  name = ""
   repositories = []
   constructor(private dataService: DataService) { }
 

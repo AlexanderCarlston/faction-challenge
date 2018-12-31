@@ -6,6 +6,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 [Wireframe](https://imgur.com/hapD92c)
 
+## Challenge
+
+Set up a github repo and build out an Angular 7 SPA that does the following:
+
+Uses a personal github token to login to my own github account and lists all of my repositories. If you get that done quickly, add ability to filter my repositories via a search bar.
+
+## Checklist
+
+- [x] Basic functionality
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
