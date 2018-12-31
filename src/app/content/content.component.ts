@@ -22,7 +22,7 @@ export class ContentComponent implements OnInit {
 
   submit(){
     var name = this.dataService.getName()
-    console.log(this.userName, name)
+    // console.log(this.userName, name)
     fetch("https://api.github.com/users/" + this.userName + "/repos")
     .then(response => response.json())
     .then(data => {
@@ -30,7 +30,6 @@ export class ContentComponent implements OnInit {
         console.log("true")
         this.repositories = data
       } else {
-        
         this.repositories = data.filter(repository => repository.name.includes(name))
       }
     })
