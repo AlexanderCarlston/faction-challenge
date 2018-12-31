@@ -8,12 +8,12 @@ import { DataService } from '../data.service';
 })
 export class ContentComponent implements OnInit {
 
-  name = ""
+  userName = ""
   repositories = []
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    console.log(name, "this.name")
+    
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -22,16 +22,16 @@ export class ContentComponent implements OnInit {
 
   submit(){
     var name = this.dataService.getName()
-    console.log(name)
-    fetch("https://api.github.com/users/" + this.name + "/repos")
+    console.log(this.userName, name)
+    fetch("https://api.github.com/users/" + this.userName + "/repos")
     .then(response => response.json())
     .then(data => {
       if(name == ""){
         console.log("true")
         this.repositories = data
       } else {
-        var dataUnfiltered = data
-        this.repositories = dataUnfiltered.filter(repository => repository.name.includes(name))
+        
+        this.repositories = data.filter(repository => repository.name.includes(name))
       }
     })
     .catch(error => console.log(error))
