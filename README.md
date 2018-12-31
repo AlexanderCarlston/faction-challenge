@@ -17,6 +17,8 @@ Uses a personal github token to login to my own github account and lists all of 
 - [x] Basic functionality
 - [x] Search bar (Basic)
 - [x] Search bar (Works with parts of name, not the exact string)
+- [] Search bar (Doesn't require pressing submit button)
+- [] Mobile friendly form
 
 ## Development server
 
