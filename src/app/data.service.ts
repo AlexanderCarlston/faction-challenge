@@ -9,7 +9,6 @@ import { map, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operato
 export class DataService {
   //API
   baseUrl: string = "https://api.github.com/users/"
-  repos: string = "repos"
   //Variables
   name = ""
   repositories = []
