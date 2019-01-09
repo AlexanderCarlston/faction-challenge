@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { map, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,12 @@ export class DataService {
   repositories = []
   constructor() { }
   
-  searchRepositories(){
+  search(terms: Observable<string>){
 
+  }
+
+  searchRepositories(term){
+    return
   }
 
   getName(){
