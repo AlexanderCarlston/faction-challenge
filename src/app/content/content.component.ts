@@ -1,16 +1,20 @@
 import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
 import { DataService } from '../data.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.css']
+  styleUrls: ['./content.component.css'],
 })
+
 export class ContentComponent implements OnInit {
 
   userName = ""
-  repositories = []
-  constructor(private dataService: DataService) { }
+  repositories$ = []
+  constructor(private dataService: DataService) {
+    
+   }
 
   ngOnInit() {
     
@@ -28,9 +32,9 @@ export class ContentComponent implements OnInit {
     .then(data => {
       if(name == ""){
         console.log("true")
-        this.repositories = data
+        this.repositories$ = data
       } else {
-        this.repositories = data.filter(repository => repository.name.includes(name))
+        this.repositories$ = data.filter(repository => repository.name.includes(name))
       }
     })
     .catch(error => console.log(error))
