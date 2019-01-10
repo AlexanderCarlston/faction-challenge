@@ -10,28 +10,24 @@ export class DataService {
   //API
   baseUrl: string = "https://api.github.com/users/"
   //Variables
-  name = ""
+  searchTerm = ""
   repositories = []
   constructor() { }
-  
-  search(terms: Observable<string>){
-
-  }
-
-  searchRepositories(term){
-    return
-  }
 
   getName(){
-    return this.name
+    return this.searchTerm
   }
 
-  updateName(updateName){
-    this.name = updateName
+  updateName(updateSearchTerm){
+    this.searchTerm = updateSearchTerm
   }
 
-  filterReopositories(){
-    
+  getRepositories(){
+    return this.repositories
+  }
+
+  updateRepositories(updateRepositories){
+    this.repositories = updateRepositories
   }
 
 }

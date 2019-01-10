@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
 export class ContentComponent implements OnInit {
 
   userName = ""
-  repositories$ = []
+  repositories = []
   constructor(private dataService: DataService) {
     
    }
@@ -32,9 +32,9 @@ export class ContentComponent implements OnInit {
     .then(data => {
       if(name == ""){
         console.log("true")
-        this.repositories$ = data
+        this.repositories = data
       } else {
-        this.repositories$ = data.filter(repository => repository.name.includes(name))
+        this.repositories = data.filter(repository => repository.name.includes(name))
       }
     })
     .catch(error => console.log(error))

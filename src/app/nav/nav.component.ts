@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-nav',
@@ -8,7 +9,7 @@ import { DataService } from '../data.service';
 })
 export class NavComponent implements OnInit {
 
-  name: string = ""
+  searchTerm: string = ""
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
@@ -16,9 +17,9 @@ export class NavComponent implements OnInit {
   }
 
   onKey(event: any){
-    // console.log(this.name + event.target.value)
-    this.dataService.updateName(this.name + event.target.value)
-    // console.log("name value", this.dataService.getName())
+    this.dataService.updateName(this.searchTerm + event.target.value)
+
+
   }
 
 }
