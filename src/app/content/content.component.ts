@@ -24,7 +24,7 @@ export class ContentComponent implements OnInit {
       console.log('Received new subject value: ' + value)
 
       counter += 1
-      console.log("counter", counter)
+      // console.log("counter", counter)
 
       if(counter === 1){
         this.savedRepositories = this.repositories
@@ -33,6 +33,8 @@ export class ContentComponent implements OnInit {
 
       if(counter !== value.length){
         this.repositories = this.savedRepositories.filter(repository => repository.name.includes(value))
+        counter = value.length
+        console.log(counter)
       } else {
         this.repositories = this.repositories.filter(repository => repository.name.includes(value))
       }
