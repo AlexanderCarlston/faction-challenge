@@ -21,7 +21,7 @@ export class ContentComponent implements OnInit {
     var counter = 0
     var searchTerm = this.dataService.getSearchTerm()
     searchTerm.subscribe(value => {
-      console.log('Received new subject value: ' + value)
+      // console.log('Received new subject value: ' + value)
 
       counter += 1
       // console.log("counter", counter)
@@ -34,7 +34,7 @@ export class ContentComponent implements OnInit {
       if(counter !== value.length){
         this.repositories = this.savedRepositories.filter(repository => repository.name.includes(value))
         counter = value.length
-        console.log(counter)
+        // console.log(counter)
       } else {
         this.repositories = this.repositories.filter(repository => repository.name.includes(value))
       }
