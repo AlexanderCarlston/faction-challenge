@@ -3,7 +3,7 @@
     </div>
     <form class="search">
         <label for="search_input">
-            <input name="input" id="search_input" type="text" placeholder="Repository name..." (keyup)="onKey($event)">
+            <input name="input" id="search_input" type="text" placeholder="Repository name..." (keyup)="searchTerm$.next($event.target.value)">
         </label>
     </form>
 </header>

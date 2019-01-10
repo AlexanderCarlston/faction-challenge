@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,16 +11,12 @@ export class DataService {
   //API
   baseUrl: string = "https://api.github.com/users/"
   //Variables
-  searchTerm = ""
+  searchTerm$ = new Subject<string>();
   repositories = []
   constructor() { }
 
-  getName(){
-    return this.searchTerm
-  }
-
-  updateName(updateSearchTerm){
-    this.searchTerm = updateSearchTerm
+  getSearchTerm(){
+    return this.searchTerm$
   }
 
   getRepositories(){
@@ -30,4 +27,12 @@ export class DataService {
     this.repositories = updateRepositories
   }
 
+  filterRepositories(event){
+
+  }
+
+  subscribeToSearchTerm(){
+
+  }
+  
 }

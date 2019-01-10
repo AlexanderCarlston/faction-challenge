@@ -17,26 +17,28 @@ export class ContentComponent implements OnInit {
    }
 
   ngOnInit() {
-    
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-
+    var searchTerm = this.dataService.getSearchTerm()
+    searchTerm.subscribe(value => {
+      console.log('Received new subject value: ' + value)
+      this.repositories = this.repositories.filter(repository => repository.name.includes(value))
+    })
   }
 
   submit(){
-    var name = this.dataService.getName()
+    var searchTerm = this.dataService.getSearchTerm()
     // console.log(this.userName, name)
     fetch("https://api.github.com/users/" + this.userName + "/repos")
     .then(response => response.json())
     .then(data => {
-      if(name == ""){
-        console.log("true")
-        this.repositories = data
-      } else {
-        this.repositories = data.filter(repository => repository.name.includes(name))
-      }
+      this.repositories = data
+      // if(name == ""){
+      //   console.log("true")
+      //   this.repositories = data
+      // } else {
+      //   this.repositories = data.filter(repository => repository.name.includes(name))
+      // }
     })
     .catch(error => console.log(error))
+
   }
 }

@@ -9,17 +9,16 @@ import { Subject } from 'rxjs';
 })
 export class NavComponent implements OnInit {
 
-  searchTerm: string = ""
+  searchTerm$;
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    // console.log(this.dataService.getName())
+    this.searchTerm$ = this.dataService.getSearchTerm()
   }
 
   onKey(event: any){
-    this.dataService.updateName(this.searchTerm + event.target.value)
-
-
+    // this.dataService.updateName(this.searchTerm + event.target.value)
+    this.dataService.filterRepositories(event)
   }
 
 }
