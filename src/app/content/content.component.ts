@@ -12,15 +12,31 @@ export class ContentComponent implements OnInit {
 
   userName = ""
   repositories = []
+  savedRepositories = []
   constructor(private dataService: DataService) {
     
    }
 
   ngOnInit() {
+    var counter = 0
     var searchTerm = this.dataService.getSearchTerm()
     searchTerm.subscribe(value => {
       console.log('Received new subject value: ' + value)
-      this.repositories = this.repositories.filter(repository => repository.name.includes(value))
+
+      counter += 1
+      console.log("counter", counter)
+
+      if(counter === 1){
+        this.savedRepositories = this.repositories
+        this.repositories = this.repositories.filter(repository => repository.name.includes(value))
+      }
+
+      if(counter !== value.length){
+        this.repositories = this.savedRepositories.filter(repository => repository.name.includes(value))
+      } else {
+        this.repositories = this.repositories.filter(repository => repository.name.includes(value))
+      }
+
     })
   }
 
